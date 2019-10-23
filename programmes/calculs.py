@@ -1,10 +1,9 @@
 from heures import *
 
-""" DeuxHeuresRoute = 168
-dist = 582
-DistManque = 582 % 168
-NBpause = 582 / 168
-NBpause = int(NBpause) """
+
+# |
+# |  FONCTIONNE MAIS PAS PARFAIT MANQUE UNE CONDITION SI IL RESTE MOINS DE 15 KM APRES LA DERNIERE PAUSE
+# V
 
 def tempsDeRoute(dist):
     Durée = 0
@@ -12,10 +11,8 @@ def tempsDeRoute(dist):
     NBpause = int(NBpause)
     Durée = Durée + (NBpause * 0.25) + (NBpause * 2)
     restant = dist % 168
-    restant -= 15
+    restant -= 15 # Le camion va mettre environ 15km a accélerer et ralentir   
+    Durée += 0.3
     Durée += restant / 90 
-    print ('Il va mettre',DecimalToHeure(Durée),'et faire',NBpause, 'pauses.')
-    
-# le modulo c'est fou 
-# en gros division par 174 donne le nombre de pauses 
-# et modulo donne la distance réstante a calculer
+    return DecimalToHeure(Durée)
+
