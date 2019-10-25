@@ -13,4 +13,5 @@ distTrajets = {
     'Marseille-Lyon' :313,
 }
 
+
 villes = ['Bordeaux','Marseille','Paris','Lyon']
